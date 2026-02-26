@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     private bool interactPressed;
 
     public static event Action<NPCData> OnDialogueRequested;
+    private Interactable currentInteractable;
 
 
     private bool isRunning;
@@ -111,20 +112,25 @@ public class Player : MonoBehaviour
         //make a ray that goes straight out of the camera(center of screen)
         //players eyesight
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
-        RaycastHit hit;
+        //RaycastHit hit;
         //asking unity if it hit something within 3 units
         //hit stores what we hit like the collider
-        bool didHit = Physics.Raycast(ray, out hit, 3);
-        if (!didHit) return;//if we didn't hit anything start here
+        //bool didHit = Physics.Raycast(ray, out hit, 3);
+        //if (!didHit) return;//if we didn't hit anything start here
         //if we hit something tagged interactable
-        if (hit.collider.CompareTag("Interactable"))
+        if (Physics.Raycast(ray, out RaycastHit hit, 3f))
         {
-            //store the object so we can destroy or do whatever when the player clicks
-            currentTarget = hit.collider.gameObject;
-            if (reticleImage != null)
+            currentInteractable = hit.collider.GetComponentInParent<Interactable>();
+            if (currentInteractable != null && reticleImage != null)
             {
                 reticleImage.color = Color.red;
+                Debug.DrawRay(cameraTransform.position, cameraTransform.forward * 3, Color.blue);
             }
+            else
+            {
+                Debug.DrawRay(cameraTransform.position, cameraTransform.forward * 3, Color.blue);
+            }
+            
         }
 
         Debug.DrawRay(cameraTransform.position, cameraTransform.forward * 3, Color.blue);
@@ -138,9 +144,7 @@ public class Player : MonoBehaviour
         //this changes next frame
         interactPressed = false;
         if (currentTarget == null) return;
-        Destroy(currentTarget);
-        //clear target reference after destroying
-        currentTarget = null;
+        currentInteractable.Interact(this);
 
     }
 
@@ -174,7 +178,7 @@ public class Player : MonoBehaviour
     {
         Debug.Log("gg Collided with: " + hit.gameObject.name);
     }
-    public void RequestDialog(NPCData nPCData)
+    public void RequestDialogue(NPCData nPCData)
     {
         OnDialogueRequested?.Invoke(nPCData);
     }
