@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -23,6 +24,8 @@ public class Player : MonoBehaviour
     private GameObject currentTarget;
     public Image reticleImage;
     private bool interactPressed;
+
+    public static event Action<NPCData> OnDialogueRequested;
 
 
     private bool isRunning;
@@ -170,5 +173,9 @@ public class Player : MonoBehaviour
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Debug.Log("gg Collided with: " + hit.gameObject.name);
+    }
+    public void RequestDialog(NPCData nPCData)
+    {
+        OnDialogueRequested?.Invoke(nPCData);
     }
 }

@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-u
 
     public void OnReload(InputAction.CallbackContext context)
     {
