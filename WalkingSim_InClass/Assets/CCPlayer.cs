@@ -177,6 +177,7 @@ public class CCPlayer : MonoBehaviour
     public void OnInteract(InputAction.CallbackContext context)
     {
         if (context.performed) interactPressed = true;
+
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)

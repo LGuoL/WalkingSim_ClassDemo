@@ -143,7 +143,7 @@ public class Player : MonoBehaviour
         //consume the input so one click only triggers one interactions
         //this changes next frame
         interactPressed = false;
-        if (currentTarget == null) return;
+        if (currentInteractable == null) return;
         currentInteractable.Interact(this);
 
     }
