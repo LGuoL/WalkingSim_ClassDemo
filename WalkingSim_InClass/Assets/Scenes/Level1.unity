@@ -403,7 +403,7 @@ MonoBehaviour:
   ringingClip: {fileID: 0}
   pickedUpClip: {fileID: 0}
   phoneInteractable: {fileID: 1792575030}
-  choicePanelUI: {fileID: 834139234}
+  choicePanelUI: {fileID: 2089786986}
   platformPieces:
   - {fileID: 1794195249}
   - {fileID: 1042834908}
@@ -919,7 +919,6 @@ GameObject:
   - component: {fileID: 834139231}
   - component: {fileID: 834139233}
   - component: {fileID: 834139232}
-  - component: {fileID: 834139234}
   m_Layer: 5
   m_Name: ChoicePanel
   m_TagString: Untagged
@@ -946,7 +945,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 80}
+  m_AnchoredPosition: {x: 0, y: 266}
   m_SizeDelta: {x: 1200, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &834139232
@@ -987,24 +986,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834139230}
   m_CullTransparentMesh: 1
---- !u!114 &834139234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834139230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d850aea8c22318946bd4a4c7742f6f1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChoicePanelUI
-  panelRoot: {fileID: 834139230}
-  questionText: {fileID: 1311253779}
-  leftButton: {fileID: 1817398206}
-  leftButtonText: {fileID: 1823444220}
-  rightButton: {fileID: 1386588340}
-  rightButtonText: {fileID: 1288553103}
 --- !u!1 &863195974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,7 +1929,7 @@ RectTransform:
   m_GameObject: {fileID: 1386588338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1288553102}
@@ -1956,7 +1937,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 350, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1386588340
@@ -2447,6 +2428,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f7d406434f48f4faeb4d25952216cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  canLook: 1
+  canMove: 1
+  canInteractInput: 1
   walkSpeed: 5
   runSpeed: 9
   jumpHeight: 5
@@ -3221,7 +3205,7 @@ RectTransform:
   m_GameObject: {fileID: 1817398204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1823444219}
@@ -3229,7 +3213,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -350, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1817398206
@@ -3967,6 +3951,7 @@ GameObject:
   - component: {fileID: 2089786984}
   - component: {fileID: 2089786983}
   - component: {fileID: 2089786982}
+  - component: {fileID: 2089786986}
   m_Layer: 5
   m_Name: ChoiceCanvas
   m_TagString: Untagged
@@ -4057,6 +4042,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2089786986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089786981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d850aea8c22318946bd4a4c7742f6f1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChoicePanelUI
+  panelRoot: {fileID: 834139230}
+  questionText: {fileID: 1311253779}
+  leftButton: {fileID: 1817398206}
+  leftButtonText: {fileID: 1823444220}
+  rightButton: {fileID: 1386588340}
+  rightButtonText: {fileID: 1288553103}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
