@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class WakeMonitorInteractable : MonoBehaviour
+public class WakeMonitorInteractable : Interactable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private bool used = false;
 
-    // Update is called once per frame
-    void Update()
+    public override void Interact(Player player)
     {
-        
+        if (used) return;
+
+        used = true;
+        Level2SequenceManager.instance.OpenWakeChoice();
     }
 }

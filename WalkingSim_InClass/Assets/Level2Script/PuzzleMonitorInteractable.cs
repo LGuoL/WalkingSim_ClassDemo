@@ -1,16 +1,20 @@
 using UnityEngine;
 
-public class PuzzleMonitorInteractable : MonoBehaviour
+public class PuzzleMonitorInteractable : Interactable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private bool canInteract = false;
+    private bool used = false;
+
+    public void SetCanInteract(bool value)
     {
-        
+        canInteract = value;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Interact(Player player)
     {
-        
+        if (!canInteract || used) return;
+
+        used = true;
+        Level2SequenceManager.instance.OpenPuzzleView();
     }
 }
