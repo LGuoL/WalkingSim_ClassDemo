@@ -15,9 +15,45 @@ public class ChoicePanelUI : MonoBehaviour
     public TextMeshProUGUI rightButtonText;
 
     private Action<int> onChoiceSelected;
+    private Player player;
+
+    private void Start()
+    {
+        player = FindFirstObjectByType<Player>();
+        HidePanel();
+    }
 
     public void ShowChoices(string question, string leftText, string rightText, Action<int> callback)
     {
+        Debug.Log("ChoicePanelUI.ShowChoices called");
+
+        if (player == null)
+            player = FindFirstObjectByType<Player>();
+
+        if (panelRoot == null)
+        {
+            Debug.LogError("panelRoot is NULL");
+            return;
+        }
+
+        if (questionText == null)
+        {
+            Debug.LogError("questionText is NULL");
+            return;
+        }
+
+        if (leftButton == null || rightButton == null)
+        {
+            Debug.LogError("Button reference is NULL");
+            return;
+        }
+
+        if (leftButtonText == null || rightButtonText == null)
+        {
+            Debug.LogError("Button text reference is NULL");
+            return;
+        }
+
         panelRoot.SetActive(true);
 
         questionText.text = question;
@@ -32,16 +68,21 @@ public class ChoicePanelUI : MonoBehaviour
         leftButton.onClick.AddListener(() => SelectChoice(0));
         rightButton.onClick.AddListener(() => SelectChoice(1));
 
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        if (player != null)
+            player.SetControlEnabled(false);
+
+        Debug.Log("Choice panel activated successfully");
     }
 
     public void HidePanel()
     {
         panelRoot.SetActive(false);
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        if (player == null)
+            player = FindFirstObjectByType<Player>();
+
+        if (player != null)
+            player.SetControlEnabled(true);
     }
 
     void SelectChoice(int index)

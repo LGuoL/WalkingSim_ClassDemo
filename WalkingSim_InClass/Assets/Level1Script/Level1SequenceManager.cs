@@ -77,16 +77,25 @@ public class Level1SequenceManager : MonoBehaviour
                 phoneAudioSource.PlayOneShot(pickedUpClip);
         }
 
+        Debug.Log("Phone answered. About to show first choice.");
+
         ShowNextChoice();
-        Debug.Log("Phone answered.");
     }
+
 
     void ShowNextChoice()
     {
-        if (choicePanelUI == null) return;
+        Debug.Log("ShowNextChoice called. currentChoiceStep = " + currentChoiceStep);
+
+        if (choicePanelUI == null)
+        {
+            Debug.LogError("choicePanelUI is NULL");
+            return;
+        }
 
         if (currentChoiceStep == 0)
         {
+            Debug.Log("Showing first choice UI");
             choicePanelUI.ShowChoices(
                 "Do you want to continue?",
                 "Yes",
@@ -96,6 +105,7 @@ public class Level1SequenceManager : MonoBehaviour
         }
         else if (currentChoiceStep == 1)
         {
+            Debug.Log("Showing second choice UI");
             choicePanelUI.ShowChoices(
                 "Are you sure?",
                 "Keep going",
@@ -105,6 +115,7 @@ public class Level1SequenceManager : MonoBehaviour
         }
         else if (currentChoiceStep == 2)
         {
+            Debug.Log("Showing third choice UI");
             choicePanelUI.ShowChoices(
                 "Final choice.",
                 "Accept",

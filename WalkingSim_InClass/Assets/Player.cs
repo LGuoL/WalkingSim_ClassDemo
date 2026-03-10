@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    [Header("Control State")]
+    public bool canLook = true;
+    public bool canMove = true;
+    public bool canInteractInput = true;
+
     [Header("Movement")]
     public float walkSpeed = 5;
     public float runSpeed = 9;
@@ -46,11 +51,19 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        HandleLook();
-        HandleMovement();
-        CheckInteract();
-        HandleInteract();
+        if (canLook)
+            HandleLook();
+
+        if (canMove)
+            HandleMovement();
+
+        if (canInteractInput)
+        {
+            CheckInteract();
+            HandleInteract();
+        }
     }
+
     private void HandleLook()
     {
         float yaw = lookInput.x * lookSensativity;
@@ -151,27 +164,49 @@ public class Player : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        if (!canMove)
+        {
+            moveInput = Vector2.zero;
+            return;
+        }
+
         moveInput = context.ReadValue<Vector2>();
     }
 
     public void OnLook(InputAction.CallbackContext context)
     {
+        if (!canLook)
+        {
+            lookInput = Vector2.zero;
+            return;
+        }
+
         lookInput = context.ReadValue<Vector2>();
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if(context.performed) isJumping = true;
+        if (!canMove) return;
+
+        if (context.performed) isJumping = true;
     }
 
     public void OnSprint(InputAction.CallbackContext context)
     {
+        if (!canMove)
+        {
+            isRunning = false;
+            return;
+        }
+
         isRunning = context.ReadValueAsButton();
     }
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if(context.performed) interactPressed = true; 
+        if (!canInteractInput) return;
+
+        if (context.performed) interactPressed = true;
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -181,5 +216,30 @@ public class Player : MonoBehaviour
     public void RequestDialogue(NPCData nPCData)
     {
         OnDialogueRequested?.Invoke(nPCData);
+    }
+
+
+    public void SetControlEnabled(bool enabled)
+    {
+        canLook = enabled;
+        canMove = enabled;
+        canInteractInput = enabled;
+
+        if (!enabled)
+        {
+            moveInput = Vector2.zero;
+            lookInput = Vector2.zero;
+            isRunning = false;
+            isJumping = false;
+            interactPressed = false;
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 }
