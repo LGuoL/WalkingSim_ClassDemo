@@ -8,9 +8,9 @@ public class DialogManager : MonoBehaviour
     public TextMeshProUGUI placeHolderOpeningLine;
 
 
-    private void OnEnable()
+    private void OnDisable()
     {
-        Player.OnDialogueRequested += StartDialogue;
+        Player.OnDialogueRequested -= StartDialogue;
     }
 
     private void OnDisabel()
