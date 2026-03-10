@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class BoxPlacementZone : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private bool occupied = false;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (occupied) return;
+
+        BoxCarryInteractable box = other.GetComponent<BoxCarryInteractable>();
+        if (box != null)
+        {
+            occupied = true;
+            box.PlaceInZone(transform);
+            Level3SequenceManager.instance.RegisterBoxPlaced();
+        }
     }
 }

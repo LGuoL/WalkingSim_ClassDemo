@@ -1,16 +1,25 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class MotherDialogueUI : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public GameObject panelRoot;
+    public TextMeshProUGUI dialogueText;
+
+    public IEnumerator ShowDialogue(string text, float duration)
     {
-        
+        panelRoot.SetActive(true);
+        dialogueText.text = text;
+        yield return new WaitForSeconds(duration);
+        panelRoot.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public IEnumerator ShowDialogueInterrupted(string text, float duration)
     {
-        
+        panelRoot.SetActive(true);
+        dialogueText.text = text;
+        yield return new WaitForSeconds(duration);
+        panelRoot.SetActive(false);
     }
 }

@@ -1,16 +1,15 @@
 using UnityEngine;
 
-public class ApartmentDoorInteractable : MonoBehaviour
+public class ApartmentDoorInteractable : Interactable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public bool isMainDoor1403 = true;
+    private bool used = false;
 
-    // Update is called once per frame
-    void Update()
+    public override void Interact(Player player)
     {
-        
+        if (!isMainDoor1403 || used) return;
+
+        used = true;
+        Level3SequenceManager.instance.StartLevel3Tasks();
     }
 }

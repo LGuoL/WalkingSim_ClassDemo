@@ -1,16 +1,20 @@
+using TMPro;
 using UnityEngine;
 
 public class TaskUIManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public TextMeshProUGUI mainTaskText;
+    public TextMeshProUGUI subTaskText;
+
+    public void SetTask(string mainTask, string subTask)
     {
-        
+        if (mainTaskText != null) mainTaskText.text = mainTask;
+        if (subTaskText != null) subTaskText.text = subTask;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ClearTask()
     {
-        
+        if (mainTaskText != null) mainTaskText.text = "";
+        if (subTaskText != null) subTaskText.text = "";
     }
 }
