@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class WorldDesaturator : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public Renderer[] targetRenderers;
+    public Material desaturatedMaterial;
 
-    // Update is called once per frame
-    void Update()
+    public void DesaturateWorld()
     {
-        
+        if (targetRenderers == null || desaturatedMaterial == null) return;
+
+        foreach (var r in targetRenderers)
+        {
+            if (r != null)
+                r.material = desaturatedMaterial;
+        }
     }
 }

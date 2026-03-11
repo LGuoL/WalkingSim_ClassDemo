@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class RecipeNoteInteractable : MonoBehaviour
+public class RecipeNoteInteractable : Interactable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Interact(Player player)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("Recipe: Curry Pork Cutlet Rice");
     }
 }

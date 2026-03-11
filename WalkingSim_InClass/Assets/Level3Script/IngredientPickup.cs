@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class IngredientPickup : MonoBehaviour
+public class IngredientPickup : Interactable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private bool picked = false;
 
-    // Update is called once per frame
-    void Update()
+    public override void Interact(Player player)
     {
-        
+        if (picked) return;
+        picked = true;
+        gameObject.SetActive(false);
+        Level3SequenceManager.instance.RegisterIngredientCollected();
     }
 }

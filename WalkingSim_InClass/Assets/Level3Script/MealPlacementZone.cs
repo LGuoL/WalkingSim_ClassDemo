@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class MealPlacementZone : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private bool placed = false;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (placed) return;
+
+        if (other.CompareTag("Meal"))
+        {
+            placed = true;
+            other.transform.position = transform.position;
+            Level3SequenceManager.instance.RegisterMealPlaced();
+        }
     }
 }

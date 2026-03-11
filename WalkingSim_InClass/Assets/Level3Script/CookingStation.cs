@@ -1,16 +1,23 @@
 using UnityEngine;
 
-public class CookingStation : MonoBehaviour
+public class CookingStation : Interactable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public GameObject mealPrefab;
+    public Transform mealSpawnPoint;
+    private bool cooked = false;
 
-    // Update is called once per frame
-    void Update()
+    public override void Interact(Player player)
     {
-        
+        if (cooked) return;
+        if (!Level3SequenceManager.instance.HasAllIngredients()) return;
+
+        cooked = true;
+
+        if (mealPrefab != null && mealSpawnPoint != null)
+        {
+            Instantiate(mealPrefab, mealSpawnPoint.position, mealSpawnPoint.rotation);
+        }
+
+        Level3SequenceManager.instance.RegisterMealCooked();
     }
 }

@@ -1,16 +1,20 @@
 using UnityEngine;
 
-public class PhotoInteractable : MonoBehaviour
+public class PhotoInteractable : Interactable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Interact(Player player)
     {
-        
+        if (Level3SequenceManager.instance.photoViewerUI != null)
+        {
+            Level3SequenceManager.instance.photoViewerUI.Show(
+                "Some memories never really leave.",
+                OnPhotoClosed
+            );
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnPhotoClosed()
     {
-        
+        Level3SequenceManager.instance.OnPhotoViewed();
     }
 }
