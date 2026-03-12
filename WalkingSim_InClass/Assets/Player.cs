@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public bool canLook = true;
     public bool canMove = true;
     public bool canInteractInput = true;
+    public BoxCarryInteractable carriedBox;
 
     [Header("Movement")]
     public float walkSpeed = 5;

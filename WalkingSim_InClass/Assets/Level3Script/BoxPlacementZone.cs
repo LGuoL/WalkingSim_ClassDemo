@@ -6,14 +6,29 @@ public class BoxPlacementZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Something entered zone: " + other.gameObject.name);
+
         if (occupied) return;
 
-        BoxCarryInteractable box = other.GetComponent<BoxCarryInteractable>();
-        if (box != null)
+        Player player = other.GetComponent<Player>();
+        if (player != null)
         {
-            occupied = true;
-            box.PlaceInZone(transform);
-            Level3SequenceManager.instance.RegisterBoxPlaced();
+            Debug.Log("Player entered zone: " + player.gameObject.name);
+
+            if (player.carriedBox != null)
+            {
+                Debug.Log("Player is carrying box: " + player.carriedBox.gameObject.name);
+
+                occupied = true;
+                player.carriedBox.PlaceInZone(transform);
+                Level3SequenceManager.instance.RegisterBoxPlaced();
+
+                Debug.Log("Box placed in zone: " + gameObject.name);
+            }
+            else
+            {
+                Debug.Log("Player entered zone but is not carrying a box.");
+            }
         }
     }
 }
