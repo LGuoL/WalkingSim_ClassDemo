@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ae53bb5f6e97b444787c46036f7d0c43
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/Fish.prefab
+  uploadId: 869550

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 643aeb88a51ec6f4d9ffe1101001403a
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/FishPlate.prefab
+  uploadId: 869550

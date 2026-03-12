@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4e7a50e0c1ecb4149913f5fcf96e05a0
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/TacoPlate.prefab
+  uploadId: 869550

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 73ea76e5e59d9734cb83a146b2531e5e
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/Bucket.prefab
+  uploadId: 869550

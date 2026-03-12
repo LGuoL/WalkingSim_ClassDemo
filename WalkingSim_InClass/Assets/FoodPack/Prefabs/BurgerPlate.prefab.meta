@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 98ecf1e0eb554dd4bb796dee8ba57b6f
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/BurgerPlate.prefab
+  uploadId: 869550

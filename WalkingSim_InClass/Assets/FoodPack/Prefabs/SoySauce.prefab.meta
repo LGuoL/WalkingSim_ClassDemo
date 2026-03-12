@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 999c88a207da0154da0f65f16ec31681
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/SoySauce.prefab
+  uploadId: 869550

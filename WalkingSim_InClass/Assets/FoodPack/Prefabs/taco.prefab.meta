@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ffb93b1933eadb740a740b96037c84a9
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/taco.prefab
+  uploadId: 869550

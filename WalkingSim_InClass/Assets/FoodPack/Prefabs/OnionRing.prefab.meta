@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2ef435c86364604429c7f86b464de8da
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/OnionRing.prefab
+  uploadId: 869550

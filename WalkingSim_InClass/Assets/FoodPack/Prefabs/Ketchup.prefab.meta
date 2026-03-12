@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c7abe5444d2449b4e95ec98e98cb0d21
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/Ketchup.prefab
+  uploadId: 869550

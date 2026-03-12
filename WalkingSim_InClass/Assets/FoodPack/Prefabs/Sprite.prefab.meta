@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6f9c5331a9f16404693d607c1afbf6ee
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/Sprite.prefab
+  uploadId: 869550

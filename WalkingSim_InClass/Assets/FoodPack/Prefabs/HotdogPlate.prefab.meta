@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 86e2d519cf9140e4a82c26ca252a6d44
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/HotdogPlate.prefab
+  uploadId: 869550

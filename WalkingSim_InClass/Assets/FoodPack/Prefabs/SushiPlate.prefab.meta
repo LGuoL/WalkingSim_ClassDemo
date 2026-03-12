@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 24c70f75c05b8244888506d02864d2e8
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/SushiPlate.prefab
+  uploadId: 869550

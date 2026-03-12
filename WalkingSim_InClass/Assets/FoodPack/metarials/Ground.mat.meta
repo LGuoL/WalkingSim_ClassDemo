@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ea3f50f279554aa468fd296d52804042
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/metarials/Ground.mat
+  uploadId: 869550

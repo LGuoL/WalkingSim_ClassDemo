@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2d49a999c935b3e49b95c84be02ccbeb
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/plate.prefab
+  uploadId: 869550

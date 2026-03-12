@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6282225e6efb46b4585c7ea0b5f433e2
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/metarials/M_Shine.mat
+  uploadId: 869550

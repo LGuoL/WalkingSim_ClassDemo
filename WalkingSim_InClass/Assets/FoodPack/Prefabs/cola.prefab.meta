@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7ba2c2e8f21729c4aa4131e657a1cd0b
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/cola.prefab
+  uploadId: 869550

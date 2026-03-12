@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8100182940d2f984ca3d8e18094fd04a
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/Wrap.prefab
+  uploadId: 869550

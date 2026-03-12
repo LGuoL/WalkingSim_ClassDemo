@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b6dcb74a26a3e644ab65d0030d10114e
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/Burger.prefab
+  uploadId: 869550

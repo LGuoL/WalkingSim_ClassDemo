@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 97dfdf32d331f8e42a9e487f50f57f77
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/FishChips.prefab
+  uploadId: 869550

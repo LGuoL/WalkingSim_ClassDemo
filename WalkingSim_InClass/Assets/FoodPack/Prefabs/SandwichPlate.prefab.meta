@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 689656932e9f36c4bbdfad5bc164a407
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/SandwichPlate.prefab
+  uploadId: 869550

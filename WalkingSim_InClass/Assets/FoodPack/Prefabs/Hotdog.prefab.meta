@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 517ec6d0c9031534ea7addfeccb576f8
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/Hotdog.prefab
+  uploadId: 869550

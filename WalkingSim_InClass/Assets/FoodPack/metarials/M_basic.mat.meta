@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ab6400f9c4f959946a3abcfe234f2192
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/metarials/M_basic.mat
+  uploadId: 869550

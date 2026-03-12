@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public bool canMove = true;
     public bool canInteractInput = true;
     public BoxCarryInteractable carriedBox;
+    public MealCarryInteractable carriedMeal;
 
     [Header("Movement")]
     public float walkSpeed = 5;

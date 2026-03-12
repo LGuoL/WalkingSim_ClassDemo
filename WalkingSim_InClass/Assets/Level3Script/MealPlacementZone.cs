@@ -6,13 +6,29 @@ public class MealPlacementZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Something entered meal zone: " + other.gameObject.name);
+
         if (placed) return;
 
-        if (other.CompareTag("Meal"))
+        Player player = other.GetComponent<Player>();
+        if (player != null)
         {
-            placed = true;
-            other.transform.position = transform.position;
-            Level3SequenceManager.instance.RegisterMealPlaced();
+            Debug.Log("Player entered meal zone: " + player.gameObject.name);
+
+            if (player.carriedMeal != null)
+            {
+                Debug.Log("Player is carrying meal: " + player.carriedMeal.gameObject.name);
+
+                placed = true;
+                player.carriedMeal.PlaceInZone(transform);
+                Level3SequenceManager.instance.RegisterMealPlaced();
+
+                Debug.Log("Meal placed successfully.");
+            }
+            else
+            {
+                Debug.Log("Player entered meal zone but is not carrying meal.");
+            }
         }
     }
 }

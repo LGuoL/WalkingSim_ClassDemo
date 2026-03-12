@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6d09de618ef9d924a830e73240e1191e
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/Pizza.prefab
+  uploadId: 869550

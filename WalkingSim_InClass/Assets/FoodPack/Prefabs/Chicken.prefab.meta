@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: f4101459db0ec4643a455fd25bc032e7
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/Chicken.prefab
+  uploadId: 869550

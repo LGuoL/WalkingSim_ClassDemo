@@ -720,8 +720,8 @@ Transform:
   m_GameObject: {fileID: 221393323}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.78, y: 1.2, z: -16.95}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2.78, y: 1.56, z: -16.95}
+  m_LocalScale: {x: 2.4715242, y: 1.0499893, z: 2.4549003}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 617621839}
@@ -1564,7 +1564,7 @@ Transform:
   m_GameObject: {fileID: 412268647}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.3, y: 3.4, z: -158.5}
+  m_LocalPosition: {x: 135.6, y: -281.9, z: -230.2}
   m_LocalScale: {x: 81.56632, y: 81.56632, z: 81.56632}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3560,6 +3560,7 @@ MonoBehaviour:
   canMove: 1
   canInteractInput: 1
   carriedBox: {fileID: 0}
+  carriedMeal: {fileID: 0}
   walkSpeed: 5
   runSpeed: 9
   jumpHeight: 5

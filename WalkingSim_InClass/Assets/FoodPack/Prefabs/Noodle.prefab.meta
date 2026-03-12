@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e88776abf6d9f18498573d1ac4998b9f
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/Noodle.prefab
+  uploadId: 869550

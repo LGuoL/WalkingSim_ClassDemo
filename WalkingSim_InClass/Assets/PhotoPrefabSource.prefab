@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 874759421844512488}
   - component: {fileID: 2953226757701585096}
   - component: {fileID: 5468184983428817487}
+  - component: {fileID: 740290550451434673}
   m_Layer: 0
   m_Name: PhotoPrefabSource
   m_TagString: Untagged
@@ -112,3 +113,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &740290550451434673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8247378007877361819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a90129851cb2aa64a8a5cb7ffb9ff877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhotoInteractable

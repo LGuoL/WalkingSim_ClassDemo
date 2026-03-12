@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 159e1e1a203f2d54c838e34c51aefe0f
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 363502
+  packageName: FoodPack
+  packageVersion: 1.0
+  assetPath: Assets/FoodPack/Prefabs/ChickenPlate.prefab
+  uploadId: 869550
