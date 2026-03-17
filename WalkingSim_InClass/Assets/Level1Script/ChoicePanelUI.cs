@@ -14,51 +14,26 @@ public class ChoicePanelUI : MonoBehaviour
     public Button rightButton;
     public TextMeshProUGUI rightButtonText;
 
+    public RectTransform panelRect;
+    public Image panelImage;
+
     private Action<int> onChoiceSelected;
     private Player player;
 
-    private void Start()
+    void Start()
     {
         player = FindFirstObjectByType<Player>();
-        HidePanel();
     }
 
-    public void ShowChoices(string question, string leftText, string rightText, Action<int> callback)
+    public void ShowChoices(string question, string leftText, string rightText, Action<int> callback, int step)
     {
-        Debug.Log("ChoicePanelUI.ShowChoices called");
-
-        if (player == null)
-            player = FindFirstObjectByType<Player>();
-
-        if (panelRoot == null)
-        {
-            Debug.LogError("panelRoot is NULL");
-            return;
-        }
-
-        if (questionText == null)
-        {
-            Debug.LogError("questionText is NULL");
-            return;
-        }
-
-        if (leftButton == null || rightButton == null)
-        {
-            Debug.LogError("Button reference is NULL");
-            return;
-        }
-
-        if (leftButtonText == null || rightButtonText == null)
-        {
-            Debug.LogError("Button text reference is NULL");
-            return;
-        }
-
         panelRoot.SetActive(true);
 
         questionText.text = question;
         leftButtonText.text = leftText;
         rightButtonText.text = rightText;
+
+        ApplyStyleByStep(step);
 
         onChoiceSelected = callback;
 
@@ -69,20 +44,56 @@ public class ChoicePanelUI : MonoBehaviour
         rightButton.onClick.AddListener(() => SelectChoice(1));
 
         if (player != null)
-            player.SetControlEnabled(false);
+        {
+            player.SetUIMode(true);
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+    }
 
-        Debug.Log("Choice panel activated successfully");
+    void ApplyStyleByStep(int step)
+    {
+        if (panelRect == null || panelImage == null) return;
+
+        if (step == 0)
+        {
+            panelRect.anchoredPosition = new Vector2(0, 80);
+            panelRect.sizeDelta = new Vector2(1200, 250);
+            questionText.fontSize = 36;
+            panelImage.color = new Color(0, 0, 0, 0.6f);
+        }
+        else if (step == 1)
+        {
+            panelRect.anchoredPosition = new Vector2(0, 130);
+            panelRect.sizeDelta = new Vector2(1300, 280);
+            questionText.fontSize = 42;
+            panelImage.color = new Color(0, 0, 0, 0.75f);
+        }
+        else if (step == 2)
+        {
+            panelRect.anchoredPosition = new Vector2(0, 200);
+            panelRect.sizeDelta = new Vector2(1400, 320);
+            questionText.fontSize = 50;
+            panelImage.color = new Color(0, 0, 0, 0.9f);
+        }
     }
 
     public void HidePanel()
     {
         panelRoot.SetActive(false);
 
-        if (player == null)
-            player = FindFirstObjectByType<Player>();
-
         if (player != null)
-            player.SetControlEnabled(true);
+        {
+            player.SetUIMode(false);
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 
     void SelectChoice(int index)

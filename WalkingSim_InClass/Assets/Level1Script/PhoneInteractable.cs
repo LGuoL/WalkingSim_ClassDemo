@@ -10,7 +10,7 @@ public class PhoneInteractable : Interactable
         canInteract = value;
     }
 
-    public bool CanInteract()
+    public bool CanShowInteractHint()
     {
         return canInteract && !hasAnswered;
     }

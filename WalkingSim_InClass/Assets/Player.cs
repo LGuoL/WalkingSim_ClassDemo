@@ -11,6 +11,12 @@ public class Player : MonoBehaviour
     public bool canInteractInput = true;
     public BoxCarryInteractable carriedBox;
     public MealCarryInteractable carriedMeal;
+    [Header("State")]
+    public bool uiMode = false;
+    [Header("UI")]
+
+    public Image reticleImage;
+    public InteractHintUI interactHintUI;
 
     [Header("Movement")]
     public float walkSpeed = 5;
@@ -29,7 +35,7 @@ public class Player : MonoBehaviour
 
 
     private GameObject currentTarget;
-    public Image reticleImage;
+
     private bool interactPressed;
 
     public static event Action<NPCData> OnDialogueRequested;
@@ -46,22 +52,22 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        reticleImage = GameObject.Find("Reticle").GetComponent<Image>();
-        reticleImage.color = new Color(r: 0, g: 0, b: 0, a: .7f);
+        if (reticleImage != null)
+            reticleImage.color = new Color(0, 0, 0, .7f);
+
+        if (interactHintUI != null)
+            interactHintUI.HideHint();
     }
 
 
     private void Update()
     {
-        if (canLook)
-            HandleLook();
+        CheckInteract();
 
-        if (canMove)
-            HandleMovement();
-
-        if (canInteractInput)
+        if (!uiMode)
         {
-            CheckInteract();
+            HandleLook();
+            HandleMovement();
             HandleInteract();
         }
     }
@@ -122,33 +128,36 @@ public class Player : MonoBehaviour
     }
     void CheckInteract()
     {
-        //reset reticle image to normal color first
-        if (reticleImage != null) reticleImage.color = new Color(0, 0, 0, .7f);
-        //make a ray that goes straight out of the camera(center of screen)
-        //players eyesight
+        currentInteractable = null;
+
+        if (reticleImage != null)
+            reticleImage.color = new Color(0, 0, 0, .7f);
+
+        if (interactHintUI != null)
+            interactHintUI.HideHint();
+
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
-        //RaycastHit hit;
-        //asking unity if it hit something within 3 units
-        //hit stores what we hit like the collider
-        //bool didHit = Physics.Raycast(ray, out hit, 3);
-        //if (!didHit) return;//if we didn't hit anything start here
-        //if we hit something tagged interactable
+
         if (Physics.Raycast(ray, out RaycastHit hit, 3f))
         {
             currentInteractable = hit.collider.GetComponentInParent<Interactable>();
-            if (currentInteractable != null && reticleImage != null)
-            {
-                reticleImage.color = Color.red;
-                Debug.DrawRay(cameraTransform.position, cameraTransform.forward * 3, Color.blue);
-            }
-            else
-            {
-                Debug.DrawRay(cameraTransform.position, cameraTransform.forward * 3, Color.blue);
-            }
-            
-        }
 
-        Debug.DrawRay(cameraTransform.position, cameraTransform.forward * 3, Color.blue);
+            if (currentInteractable != null)
+            {
+                if (reticleImage != null)
+                    reticleImage.color = Color.red;
+
+                PhoneInteractable phone = currentInteractable as PhoneInteractable;
+                if (phone != null && phone.CanShowInteractHint())
+                {
+                    if (interactHintUI != null)
+                        interactHintUI.ShowHint("Press E to Answer");
+                }
+
+            }
+
+            Debug.DrawRay(cameraTransform.position, cameraTransform.forward * 3, Color.blue);
+        }
     }
 
     void HandleInteract()
@@ -206,7 +215,7 @@ public class Player : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (!canInteractInput) return;
+        if (uiMode) return;
 
         if (context.performed) interactPressed = true;
     }
@@ -242,6 +251,37 @@ public class Player : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+        }
+    }
+
+    public void SetUIMode(bool value)
+    {
+        uiMode = value;
+
+        if (uiMode)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }
+    public void ResetVerticalVelocity()
+    {
+        verticalVelocity = 0f;
+        isJumping = false;
+    }
+
+    public void ResetLookRotation()
+    {
+        pitch = 0f;
+
+        if (cameraTransform != null)
+        {
+            cameraTransform.localRotation = Quaternion.Euler(0f, 0f, 0f);
         }
     }
 }

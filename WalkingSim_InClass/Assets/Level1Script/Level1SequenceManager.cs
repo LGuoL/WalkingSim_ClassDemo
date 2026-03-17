@@ -5,6 +5,16 @@ using UnityEngine.SceneManagement;
 public class Level1SequenceManager : MonoBehaviour
 {
     public static Level1SequenceManager instance;
+    public CameraShake cameraShake;
+    public ScreenFade screenFade;
+    
+    [Header("Lighting")]
+    public Light directionalLight;
+    public float lightAfterAnswer = 0.6f;
+
+    [Header("SFX")]
+    public AudioSource sfxAudioSource;
+    public AudioClip platformFallClip;
 
     [Header("Phone")]
     public AudioSource phoneAudioSource;
@@ -65,6 +75,14 @@ public class Level1SequenceManager : MonoBehaviour
 
     public void AnswerPhone()
     {
+        if (directionalLight != null)
+        {
+            directionalLight.intensity = lightAfterAnswer;
+        }
+        if (cameraShake != null)
+        {
+            cameraShake.Shake(0.15f, 0.05f);
+        }
         if (!phoneRinging || phoneAnswered) return;
 
         phoneAnswered = true;
@@ -85,42 +103,36 @@ public class Level1SequenceManager : MonoBehaviour
 
     void ShowNextChoice()
     {
-        Debug.Log("ShowNextChoice called. currentChoiceStep = " + currentChoiceStep);
-
-        if (choicePanelUI == null)
-        {
-            Debug.LogError("choicePanelUI is NULL");
-            return;
-        }
+        if (choicePanelUI == null) return;
 
         if (currentChoiceStep == 0)
         {
-            Debug.Log("Showing first choice UI");
             choicePanelUI.ShowChoices(
                 "Do you want to continue?",
                 "Yes",
                 "No",
-                OnChoiceSelected
+                OnChoiceSelected,
+                currentChoiceStep
             );
         }
         else if (currentChoiceStep == 1)
         {
-            Debug.Log("Showing second choice UI");
             choicePanelUI.ShowChoices(
-                "Are you sure?",
-                "Keep going",
-                "Turn back",
-                OnChoiceSelected
+                "Are you SURE?",
+                "YES",
+                "NOOOOOOOOOOOO?",
+                OnChoiceSelected,
+                currentChoiceStep
             );
         }
         else if (currentChoiceStep == 2)
         {
-            Debug.Log("Showing third choice UI");
             choicePanelUI.ShowChoices(
-                "Final choice.",
+                "There is no other choice.",
                 "Accept",
-                "Refuse",
-                OnChoiceSelected
+                "Accept",
+                OnChoiceSelected,
+                currentChoiceStep
             );
         }
         else
@@ -139,6 +151,16 @@ public class Level1SequenceManager : MonoBehaviour
         if (currentChoiceStep < platformPieces.Length && platformPieces[currentChoiceStep] != null)
         {
             platformPieces[currentChoiceStep].Fall();
+        }
+
+        if (sfxAudioSource != null && platformFallClip != null)
+        {
+            sfxAudioSource.PlayOneShot(platformFallClip);
+        }
+
+        if (cameraShake != null)
+        {
+            cameraShake.Shake(0.2f, 0.06f);
         }
 
         if (eyeSpawner != null)
@@ -161,7 +183,17 @@ public class Level1SequenceManager : MonoBehaviour
             platformPieces[currentChoiceStep].Fall();
         }
 
-        yield return new WaitForSeconds(2f);
+        if (cameraShake != null)
+        {
+            cameraShake.Shake(0.3f, 0.08f);
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        if (screenFade != null)
+        {
+            yield return StartCoroutine(screenFade.FadeOut(1.2f));
+        }
 
         SceneManager.LoadScene(nextSceneName);
     }

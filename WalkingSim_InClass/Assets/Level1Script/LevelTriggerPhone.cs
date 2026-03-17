@@ -8,11 +8,14 @@ public class LevelTriggerPhone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Something entered PhoneAreaTrigger: " + other.name);
+
         if (triggered) return;
 
         Player player = other.GetComponent<Player>();
         if (player != null)
         {
+            Debug.Log("Player entered PhoneAreaTrigger.");
             triggered = true;
             StartCoroutine(DelayedRing());
         }
@@ -20,8 +23,10 @@ public class LevelTriggerPhone : MonoBehaviour
 
     IEnumerator DelayedRing()
     {
+        Debug.Log("Waiting to ring...");
         yield return new WaitForSeconds(ringDelay);
+
+        Debug.Log("Calling TriggerPhoneRinging()");
         Level1SequenceManager.instance.TriggerPhoneRinging();
     }
-
 }
