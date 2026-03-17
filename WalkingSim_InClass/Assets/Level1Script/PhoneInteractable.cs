@@ -10,6 +10,11 @@ public class PhoneInteractable : Interactable
         canInteract = value;
     }
 
+    public bool CanInteract()
+    {
+        return canInteract && !hasAnswered;
+    }
+
     public override void Interact(Player player)
     {
         if (!canInteract || hasAnswered) return;

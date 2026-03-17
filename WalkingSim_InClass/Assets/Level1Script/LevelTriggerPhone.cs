@@ -1,8 +1,10 @@
+using System.Collections;
 using UnityEngine;
 
 public class LevelTriggerPhone : MonoBehaviour
 {
     private bool triggered = false;
+    public float ringDelay = 2f;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,7 +14,14 @@ public class LevelTriggerPhone : MonoBehaviour
         if (player != null)
         {
             triggered = true;
-            Level1SequenceManager.instance.TriggerPhoneRinging();
+            StartCoroutine(DelayedRing());
         }
     }
+
+    IEnumerator DelayedRing()
+    {
+        yield return new WaitForSeconds(ringDelay);
+        Level1SequenceManager.instance.TriggerPhoneRinging();
+    }
+
 }
