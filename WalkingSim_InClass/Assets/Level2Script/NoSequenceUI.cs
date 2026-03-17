@@ -16,19 +16,25 @@ public class NoSequenceUI : MonoBehaviour
     {
         panelRoot.SetActive(true);
 
-        bigText.fontSize = 36;
+        bigText.fontSize = 60;
+        bigText.color = Color.white;
         bigText.text = "NO";
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.5f);
 
-        bigText.text = "NO\nNO";
-        yield return new WaitForSeconds(0.4f);
+        bigText.fontSize = 42;
+        bigText.color = Color.red;
+        bigText.text = "INVALID INPUT";
+        yield return new WaitForSeconds(0.7f);
 
-        bigText.text = "NO\nNO\nNO";
-        yield return new WaitForSeconds(0.4f);
+        bigText.fontSize = 42;
+        bigText.color = Color.white;
+        bigText.text = "CORRECTING RESPONSE";
+        yield return new WaitForSeconds(0.7f);
 
-        bigText.fontSize = 90;
+        bigText.fontSize = 100;
+        bigText.color = Color.white;
         bigText.text = "YES";
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.2f);
 
         panelRoot.SetActive(false);
     }

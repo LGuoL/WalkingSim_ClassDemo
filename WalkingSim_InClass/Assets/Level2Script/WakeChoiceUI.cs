@@ -9,14 +9,19 @@ public class WakeChoiceUI : MonoBehaviour
     public TextMeshProUGUI questionText;
     public Button yesButton;
     public Button noButton;
+    public UITextTyper textTyper;
 
     private Action<bool> onChoiceSelected;
 
     public void Show(string question, Action<bool> callback)
     {
         panelRoot.SetActive(true);
-        questionText.text = question;
         onChoiceSelected = callback;
+
+        if (textTyper != null)
+            textTyper.PlayText(question);
+        else
+            questionText.text = question;
 
         yesButton.onClick.RemoveAllListeners();
         noButton.onClick.RemoveAllListeners();

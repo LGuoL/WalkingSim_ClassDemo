@@ -8,14 +8,19 @@ public class PuzzlePlaceholderUI : MonoBehaviour
     public GameObject panelRoot;
     public TextMeshProUGUI titleText;
     public Button completePuzzleButton;
+    public UITextTyper textTyper;
 
     private Action onPuzzleCompleted;
 
     public void Show(Action callback)
     {
         panelRoot.SetActive(true);
-        titleText.text = "Assemble the EXIT sign";
         onPuzzleCompleted = callback;
+
+        if (textTyper != null)
+            textTyper.PlayText("ASSEMBLE THE EXIT SIGN");
+        else
+            titleText.text = "ASSEMBLE THE EXIT SIGN";
 
         completePuzzleButton.onClick.RemoveAllListeners();
         completePuzzleButton.onClick.AddListener(CompletePuzzle);
