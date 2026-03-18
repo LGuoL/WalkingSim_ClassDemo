@@ -16,6 +16,7 @@ public class PuzzlePlaceholderUI : MonoBehaviour
     {
         panelRoot.SetActive(true);
         panelRoot.transform.SetAsLastSibling();
+        completePuzzleButton.transform.SetAsLastSibling();
 
         onPuzzleCompleted = callback;
 
