@@ -16,12 +16,15 @@ public class WakeMonitorInteractable : Interactable
 
     IEnumerator InteractionSequence(Player player)
     {
-    
+
         if (player != null)
             player.SetControlEnabled(false);
 
         if (monitorBoot != null)
             yield return StartCoroutine(monitorBoot.PlayBootSequenceRoutine());
+
+        if (monitorBoot != null)
+            monitorBoot.ClearScreen();
 
         Level2SequenceManager.instance.OpenWakeChoice();
     }

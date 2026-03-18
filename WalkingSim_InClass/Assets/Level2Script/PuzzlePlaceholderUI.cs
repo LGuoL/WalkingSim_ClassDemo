@@ -15,6 +15,8 @@ public class PuzzlePlaceholderUI : MonoBehaviour
     public void Show(Action callback)
     {
         panelRoot.SetActive(true);
+        panelRoot.transform.SetAsLastSibling();
+
         onPuzzleCompleted = callback;
 
         if (textTyper != null)
@@ -27,6 +29,8 @@ public class PuzzlePlaceholderUI : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        Debug.Log("PuzzlePlaceholderUI shown");
     }
 
     public void HideImmediate()
@@ -36,6 +40,7 @@ public class PuzzlePlaceholderUI : MonoBehaviour
 
     void CompletePuzzle()
     {
+        Debug.Log("CompletePuzzle button clicked");
         onPuzzleCompleted?.Invoke();
     }
 }

@@ -121,6 +121,12 @@ public class Level2SequenceManager : MonoBehaviour
     {
         Debug.Log("OpenPuzzleView called");
 
+        if (wakeChoiceUI != null)
+            wakeChoiceUI.HidePanelImmediate();
+
+        if (noSequenceUI != null)
+            noSequenceUI.HideImmediate();
+
         if (player != null)
             player.SetControlEnabled(false);
 
