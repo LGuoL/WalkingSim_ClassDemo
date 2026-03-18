@@ -168,7 +168,7 @@ public class Level2SequenceManager : MonoBehaviour
         if (noSequenceUI != null)
             noSequenceUI.HideImmediate();
 
-        // 如果你有直接引用 Canvas，也一起关
+        // 如果直接引用 Canvas一起关
         if (wakeChoiceCanvasRoot != null)
             wakeChoiceCanvasRoot.SetActive(false);
 

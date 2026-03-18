@@ -245235,7 +245235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -256759,7 +256759,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!224 &1056323345
 RectTransform:
@@ -403070,7 +403070,7 @@ RectTransform:
   m_GameObject: {fileID: 1687299550}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0.048}
-  m_LocalScale: {x: 0.0024825928, y: 0.0024825928, z: 0.0024825928}
+  m_LocalScale: {x: 0.0014951415, y: 0.0014951415, z: 0.0014951415}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 956109324}
