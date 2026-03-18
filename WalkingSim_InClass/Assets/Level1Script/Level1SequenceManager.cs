@@ -47,6 +47,7 @@ public class Level1SequenceManager : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("AudioListener.volume = " + AudioListener.volume);
         if (phoneInteractable != null)
             phoneInteractable.SetCanInteract(false);
 

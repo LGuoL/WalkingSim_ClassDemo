@@ -658,7 +658,7 @@ MonoBehaviour:
   platformFallClip: {fileID: 0}
   phoneAudioSource: {fileID: 2131927212}
   ringingClip: {fileID: 8300000, guid: d435f8309bfe89740a46035ece0fa3f2, type: 3}
-  pickedUpClip: {fileID: 0}
+  pickedUpClip: {fileID: 8300000, guid: d435f8309bfe89740a46035ece0fa3f2, type: 3}
   phoneInteractable: {fileID: 1792575030}
   choicePanelUI: {fileID: 2089786986}
   platformPieces:
